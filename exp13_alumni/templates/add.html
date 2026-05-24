@@ -1,0 +1,9 @@
+<h2>Add Alumni</h2>
+<form method="POST">{% csrf_token %}
+    Name: <input name="name"><br>
+    USN: <input name="usn"><br>
+    Passing Year: <input name="passing_year" type="number"><br>
+    Company: <input name="company"><br>
+    <button type="submit">Submit</button>
+</form>
+<a href="/result/">View Alumni</a>

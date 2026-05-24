@@ -1,0 +1,8 @@
+<h2>Add Placement</h2>
+<form method="POST">{% csrf_token %}
+    USN: <input name="usn"><br>
+    Name: <input name="name"><br>
+    Company: <input name="company"><br>
+    <button type="submit">Submit</button>
+</form>
+<a href="/result/">Amazon Placements</a>

@@ -1,0 +1,13 @@
+<h2>XSS Attack Page (Vulnerable)</h2>
+<form method="POST">{% csrf_token %}
+    Name: <input name="name"> <button type="submit">Submit</button>
+</form>
+<p>Try submitting: &lt;script&gt;alert('Hacked')&lt;/script&gt;</p>
+
+{% if name %}
+<h3>Vulnerable Output:</h3>
+<p>{{ name|safe }}</p>
+{% endif %}
+
+<br>
+<a href="/safe/">Go to XSS Safe Page</a>

@@ -1,0 +1,9 @@
+<h2>Add Student - Exam Fee</h2>
+<form method="POST">{% csrf_token %}
+    Name: <input name="name"><br>
+    USN: <input name="usn"><br>
+    Semester: <input name="semester" type="number"><br>
+    Fee Paid: <input name="fee_paid" type="checkbox"><br>
+    <button type="submit">Submit</button>
+</form>
+<a href="/result/">View All</a>

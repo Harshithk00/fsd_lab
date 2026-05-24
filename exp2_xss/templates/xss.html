@@ -1,0 +1,10 @@
+<h2>XSS Demo</h2>
+<form method="POST">{% csrf_token %}
+    Name: <input name="name"> <button type="submit">Submit</button>
+</form>
+{% if name %}
+<h3>Vulnerable (|safe):</h3>
+<p>{{ name|safe }}</p>
+<h3>Safe (auto-escaped):</h3>
+<p>{{ name }}</p>
+{% endif %}

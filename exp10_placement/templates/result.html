@@ -1,0 +1,8 @@
+<h2>Students Placed in Amazon</h2>
+<table border="1">
+<tr><th>USN</th><th>Name</th><th>Company</th></tr>
+{% for s in data %}
+<tr><td>{{ s.usn }}</td><td>{{ s.name }}</td><td>{{ s.company }}</td></tr>
+{% endfor %}
+</table>
+<a href="/">Add</a>

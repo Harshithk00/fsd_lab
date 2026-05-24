@@ -1,0 +1,17 @@
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<form id="form">
+    Name: <input id="name"> Feedback: <input id="feedback"> <button>Submit</button>
+</form>
+
+<div id="list"></div>
+
+<script>
+$('#form').submit(function(event){
+    event.preventDefault();
+    
+    $.post('/submit/', {name: $('#name').val(), feedback: $('#feedback').val()}, function(data){
+        $('#list').append('<p>' + data.name + ': ' + data.feedback + '</p>');
+    });
+});
+</script>

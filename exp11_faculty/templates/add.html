@@ -1,0 +1,9 @@
+<h2>Add Faculty</h2>
+<form method="POST">{% csrf_token %}
+    ID: <input name="fid"><br>
+    Title: <input name="title"><br>
+    Name: <input name="name"><br>
+    Branch: <input name="branch"><br>
+    <button type="submit">Submit</button>
+</form>
+<a href="/result/">CSE Professors</a>

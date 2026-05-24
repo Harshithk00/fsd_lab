@@ -1,0 +1,9 @@
+<h2>All Biodata Submissions</h2>
+<table border="1">
+<tr><th>Name</th><th>Age</th><th>Email</th><th>Phone</th><th>Address</th></tr>
+{% for b in data %}
+<tr><td>{{ b.name }}</td><td>{{ b.age }}</td><td>{{ b.email }}</td><td>{{ b.phone }}</td><td>{{ b.address }}</td></tr>
+{% endfor %}
+</table>
+<br>
+<a href="/">Go Back to Form</a>

@@ -1,0 +1,9 @@
+<h2>Add Student</h2>
+<form method="POST">{% csrf_token %}
+    USN: <input name="usn"><br>
+    Name: <input name="name"><br>
+    Subject Code: <input name="sub_code"><br>
+    CIE Marks: <input name="cie_marks" type="number"><br>
+    <button type="submit">Submit</button>
+</form>
+<a href="/result/">View CIE &lt; 20</a>

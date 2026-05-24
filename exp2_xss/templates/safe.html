@@ -1,0 +1,13 @@
+<h2>XSS Safe Page (Auto-escaped)</h2>
+<form method="POST">{% csrf_token %}
+    Name: <input name="name"> <button type="submit">Submit</button>
+</form>
+<p>Try submitting: &lt;script&gt;alert('Hacked')&lt;/script&gt;</p>
+
+{% if name %}
+<h3>Safe Output:</h3>
+<p>{{ name }}</p>
+{% endif %}
+
+<br>
+<a href="/">Go to XSS Attack Page</a>

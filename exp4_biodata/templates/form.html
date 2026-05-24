@@ -1,0 +1,9 @@
+<h2>Biodata Form</h2>
+<form method="POST">{% csrf_token %}
+    Name: <input name="name"><br>
+    Age: <input name="age" type="number"><br>
+    Email: <input name="email" type="email"><br>
+    Phone: <input name="phone"><br>
+    Address: <textarea name="address"></textarea><br>
+    <button type="submit">Submit</button>
+</form>

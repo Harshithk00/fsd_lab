@@ -1,0 +1,8 @@
+<h2>All Students</h2>
+<table border="1">
+<tr><th>Name</th><th>USN</th><th>Sem</th><th>Fee</th></tr>
+{% for s in data %}
+<tr><td>{{ s.name }}</td><td>{{ s.usn }}</td><td>{{ s.semester }}</td><td>{{ s.fee_paid|yesno:"Yes,No" }}</td></tr>
+{% endfor %}
+</table>
+<a href="/delete/">Delete Unpaid</a> | <a href="/">Add</a>
