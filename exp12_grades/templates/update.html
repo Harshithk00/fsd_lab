@@ -1,8 +1,3 @@
-<h2>Update Grade</h2>
 <form method="POST">{% csrf_token %}
-    Name: <input name="name"><br>
-    New Grade: <input name="grade"><br>
-    <button type="submit">Update</button>
-</form>
-{% if msg %}<p>{{ msg }}</p>{% endif %}
-<a href="/">Add</a> | <a href="/result/">View All</a>
+ Name:<input name="name"> New Grade:<input name="grade"> <button>Update</button>
+</form>{{m}}<br><a href="/">Add</a> | <a href="/result/">View</a>

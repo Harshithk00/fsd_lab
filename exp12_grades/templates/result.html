@@ -1,8 +1,2 @@
-<h2>All Students</h2>
-<table border="1">
-<tr><th>Name</th><th>USN</th><th>Dept</th><th>Grade</th></tr>
-{% for s in data %}
-<tr><td>{{ s.name }}</td><td>{{ s.usn }}</td><td>{{ s.department }}</td><td>{{ s.grade }}</td></tr>
-{% endfor %}
-</table>
-<a href="/">Add</a> | <a href="/update/">Update</a>
+<table border="1"><tr><th>Name</th><th>USN</th><th>Dept</th><th>Grade</th></tr>
+{% for s in data %}<tr><td>{{s.name}}</td><td>{{s.usn}}</td><td>{{s.dept}}</td><td>{{s.grade}}</td></tr>{% endfor %}</table><a href="/">Add</a> | <a href="/update/">Update</a>

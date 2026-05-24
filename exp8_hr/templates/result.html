@@ -1,8 +1,2 @@
-<h2>Employees - Salary &gt; 50000</h2>
-<table border="1">
-<tr><th>Name</th><th>Email</th><th>Phone</th><th>Hired</th><th>Title</th><th>Salary</th></tr>
-{% for e in data %}
-<tr><td>{{ e.name }}</td><td>{{ e.email }}</td><td>{{ e.phone }}</td><td>{{ e.date_hired }}</td><td>{{ e.job_title }}</td><td>{{ e.salary }}</td></tr>
-{% endfor %}
-</table>
-<a href="/">Add</a>
+<table border="1"><tr><th>Name</th><th>Email</th><th>Phone</th><th>Date</th><th>Job</th><th>Sal</th></tr>
+{% for e in data %}<tr><td>{{e.name}}</td><td>{{e.email}}</td><td>{{e.phone}}</td><td>{{e.date}}</td><td>{{e.job}}</td><td>{{e.sal}}</td></tr>{% endfor %}</table><a href="/">Add</a>

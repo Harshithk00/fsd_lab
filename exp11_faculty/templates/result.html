@@ -1,8 +1,2 @@
-<h2>CSE Professors</h2>
-<table border="1">
-<tr><th>ID</th><th>Title</th><th>Name</th><th>Branch</th></tr>
-{% for f in data %}
-<tr><td>{{ f.fid }}</td><td>{{ f.title }}</td><td>{{ f.name }}</td><td>{{ f.branch }}</td></tr>
-{% endfor %}
-</table>
-<a href="/">Add</a>
+<table border="1"><tr><th>ID</th><th>Title</th><th>Name</th><th>Branch</th></tr>
+{% for f in data %}<tr><td>{{f.fid}}</td><td>{{f.title}}</td><td>{{f.name}}</td><td>{{f.branch}}</td></tr>{% endfor %}</table><a href="/">Add</a>

@@ -42,6 +42,7 @@ urlpatterns = [path('', views.page), path('submit/', views.submit)]
 ```
 
 ## templates/feedback.html
+
 ```html
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <form id="form">

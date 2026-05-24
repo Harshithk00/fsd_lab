@@ -1,4 +1,4 @@
-# 8: HR Management
+# 8
 
 ## Setup
 ```
@@ -24,64 +24,45 @@ urlpatterns = [path('', include('myapp.urls'))]
 ```python
 from django.db import models
 class Employee(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=50)
     email = models.EmailField()
     phone = models.CharField(max_length=15)
-    date_hired = models.DateField()
-    job_title = models.CharField(max_length=100)
-    salary = models.IntegerField()
+    date = models.DateField()
+    job = models.CharField(max_length=50)
+    sal = models.IntegerField()
 ```
 
 ## myapp/views.py
 ```python
 from django.shortcuts import render, redirect
 from .models import Employee
-
 def add(request):
     if request.method == 'POST':
-        Employee.objects.create(name=request.POST['name'], email=request.POST['email'],
-            phone=request.POST['phone'], date_hired=request.POST['date_hired'],
-            job_title=request.POST['job_title'], salary=int(request.POST['salary']))
-        return redirect('result')
+        Employee.objects.create(name=request.POST['name'], email=request.POST['email'], phone=request.POST['phone'], date=request.POST['date'], job=request.POST['job'], sal=request.POST['sal'])
+        return redirect('/result/')
     return render(request, 'add.html')
-
 def result(request):
-    data = Employee.objects.filter(salary__gt=50000)
-    return render(request, 'result.html', {'data': data})
+    return render(request, 'result.html', {'data': Employee.objects.filter(sal__gt=50000)})
 ```
 
 ## myapp/urls.py
 ```python
 from django.urls import path
 from . import views
-urlpatterns = [path('', views.add, name='add'), path('result/', views.result, name='result')]
+urlpatterns = [path('', views.add), path('result/', views.result)]
 ```
 
 ## templates/add.html
 ```html
-<h2>Add Employee</h2>
 <form method="POST">{% csrf_token %}
-    Name: <input name="name"><br>
-    Email: <input name="email" type="email"><br>
-    Phone: <input name="phone"><br>
-    Date Hired: <input name="date_hired" type="date"><br>
-    Job Title: <input name="job_title"><br>
-    Salary: <input name="salary" type="number"><br>
-    <button type="submit">Submit</button>
-</form>
-<a href="/result/">Salary &gt; 50000</a>
+ Name:<input name="name"> Email:<input name="email"> Phone:<input name="phone"> Date:<input name="date" type="date"> Job:<input name="job"> Sal:<input name="sal"> <button>Add</button>
+</form><a href="/result/">View Sal>50k</a>
 ```
 
 ## templates/result.html
 ```html
-<h2>Employees - Salary &gt; 50000</h2>
-<table border="1">
-<tr><th>Name</th><th>Email</th><th>Phone</th><th>Hired</th><th>Title</th><th>Salary</th></tr>
-{% for e in data %}
-<tr><td>{{ e.name }}</td><td>{{ e.email }}</td><td>{{ e.phone }}</td><td>{{ e.date_hired }}</td><td>{{ e.job_title }}</td><td>{{ e.salary }}</td></tr>
-{% endfor %}
-</table>
-<a href="/">Add</a>
+<table border="1"><tr><th>Name</th><th>Email</th><th>Phone</th><th>Date</th><th>Job</th><th>Sal</th></tr>
+{% for e in data %}<tr><td>{{e.name}}</td><td>{{e.email}}</td><td>{{e.phone}}</td><td>{{e.date}}</td><td>{{e.job}}</td><td>{{e.sal}}</td></tr>{% endfor %}</table><a href="/">Add</a>
 ```
 
 ## Run
@@ -90,4 +71,3 @@ python manage.py makemigrations myapp
 python manage.py migrate
 python manage.py runserver
 ```
-http://127.0.0.1:8000/

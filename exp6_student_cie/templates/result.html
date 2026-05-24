@@ -1,8 +1,5 @@
-<h2>Students with CIE &lt; 20</h2>
 <table border="1">
-<tr><th>USN</th><th>Name</th><th>Subject</th><th>CIE</th></tr>
-{% for s in data %}
-<tr><td>{{ s.usn }}</td><td>{{ s.name }}</td><td>{{ s.sub_code }}</td><td>{{ s.cie_marks }}</td></tr>
-{% endfor %}
+    <tr><th>USN</th><th>Name</th><th>Sub</th><th>CIE</th></tr>
+    {% for s in data %}<tr><td>{{s.usn}}</td><td>{{s.name}}</td><td>{{s.sub}}</td><td>{{s.cie}}</td></tr>{% endfor %}
 </table>
-<a href="/">Add</a>
+<a href="/">Back</a>

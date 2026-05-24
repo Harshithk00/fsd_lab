@@ -1,10 +1,3 @@
-<h2>Add Student</h2>
 <form method="POST">{% csrf_token %}
-    Name: <input name="name"><br>
-    USN: <input name="usn"><br>
-    Subject: <input name="subject"><br>
-    Marks: <input name="marks" type="number"><br>
-    Grade: <input name="grade"><br>
-    <button type="submit">Submit</button>
-</form>
-<a href="/result/">View O Grade</a>
+ Name:<input name="name"> USN:<input name="usn"> Sub:<input name="sub"> Marks:<input name="marks"> Grade:<input name="grade"> <button>Add</button>
+</form><a href="/result/">View O Grade</a>

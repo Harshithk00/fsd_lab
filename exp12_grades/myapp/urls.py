@@ -1,4 +1,3 @@
 from django.urls import path
 from . import views
-urlpatterns = [path('', views.add, name='add'), path('update/', views.update, name='update'),
-    path('result/', views.result, name='result')]
+urlpatterns = [path('', views.add), path('update/', views.update), path('result/', views.result)]

@@ -1,11 +1,3 @@
-<h2>Add Employee</h2>
 <form method="POST">{% csrf_token %}
-    Name: <input name="name"><br>
-    Email: <input name="email" type="email"><br>
-    Phone: <input name="phone"><br>
-    Date Hired: <input name="date_hired" type="date"><br>
-    Job Title: <input name="job_title"><br>
-    Salary: <input name="salary" type="number"><br>
-    <button type="submit">Submit</button>
-</form>
-<a href="/result/">Salary &gt; 50000</a>
+ Name:<input name="name"> Email:<input name="email"> Phone:<input name="phone"> Date:<input name="date" type="date"> Job:<input name="job"> Sal:<input name="sal"> <button>Add</button>
+</form><a href="/result/">View Sal>50k</a>

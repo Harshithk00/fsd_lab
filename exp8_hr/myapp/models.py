@@ -1,8 +1,8 @@
 from django.db import models
 class Employee(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=50)
     email = models.EmailField()
     phone = models.CharField(max_length=15)
-    date_hired = models.DateField()
-    job_title = models.CharField(max_length=100)
-    salary = models.IntegerField()
+    date = models.DateField()
+    job = models.CharField(max_length=50)
+    sal = models.IntegerField()

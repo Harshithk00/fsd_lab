@@ -1,4 +1,4 @@
-# 10: Placement
+# 10
 
 ## Setup
 ```
@@ -25,55 +25,41 @@ urlpatterns = [path('', include('myapp.urls'))]
 from django.db import models
 class Student(models.Model):
     usn = models.CharField(max_length=20)
-    name = models.CharField(max_length=100)
-    company = models.CharField(max_length=100)
+    name = models.CharField(max_length=50)
+    company = models.CharField(max_length=50)
 ```
 
 ## myapp/views.py
 ```python
 from django.shortcuts import render, redirect
 from .models import Student
-
 def add(request):
     if request.method == 'POST':
         Student.objects.create(usn=request.POST['usn'], name=request.POST['name'], company=request.POST['company'])
-        return redirect('result')
+        return redirect('/result/')
     return render(request, 'add.html')
-
 def result(request):
-    data = Student.objects.filter(company='Amazon')
-    return render(request, 'result.html', {'data': data})
+    return render(request, 'result.html', {'data': Student.objects.filter(company='Amazon')})
 ```
 
 ## myapp/urls.py
 ```python
 from django.urls import path
 from . import views
-urlpatterns = [path('', views.add, name='add'), path('result/', views.result, name='result')]
+urlpatterns = [path('', views.add), path('result/', views.result)]
 ```
 
 ## templates/add.html
 ```html
-<h2>Add Placement</h2>
 <form method="POST">{% csrf_token %}
-    USN: <input name="usn"><br>
-    Name: <input name="name"><br>
-    Company: <input name="company"><br>
-    <button type="submit">Submit</button>
-</form>
-<a href="/result/">Amazon Placements</a>
+ USN:<input name="usn"> Name:<input name="name"> Company:<input name="company"> <button>Add</button>
+</form><a href="/result/">View Amazon</a>
 ```
 
 ## templates/result.html
 ```html
-<h2>Students Placed in Amazon</h2>
-<table border="1">
-<tr><th>USN</th><th>Name</th><th>Company</th></tr>
-{% for s in data %}
-<tr><td>{{ s.usn }}</td><td>{{ s.name }}</td><td>{{ s.company }}</td></tr>
-{% endfor %}
-</table>
-<a href="/">Add</a>
+<table border="1"><tr><th>USN</th><th>Name</th><th>Company</th></tr>
+{% for s in data %}<tr><td>{{s.usn}}</td><td>{{s.name}}</td><td>{{s.company}}</td></tr>{% endfor %}</table><a href="/">Add</a>
 ```
 
 ## Run
@@ -82,4 +68,3 @@ python manage.py makemigrations myapp
 python manage.py migrate
 python manage.py runserver
 ```
-http://127.0.0.1:8000/
